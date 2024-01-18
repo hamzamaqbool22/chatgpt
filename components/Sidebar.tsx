@@ -27,8 +27,13 @@ const Sidebar = () => {
                     {/* <ModelSelection/> */}
                 </div>
                 <div className="flex flex-col space-y-2 my-2">
+              
+                        
                    {loading && (
-                          <p className="text-white text-center animate-pulse">Loading Chats...</p>
+                          <div className="flex justify-center items-center">
+                          <div className="animate-spin rounded-full border-t-4 border-white-500 border-solid border-r-4  h-12 w-12"></div>
+                        </div>
+                        
                      )}
                                             
                    

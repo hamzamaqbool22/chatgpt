@@ -9,17 +9,19 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    const { message, chatId, model,session } = req.body
+    const { message, chatId,session } = req.body
    
 
     if (!message || !chatId) {
         res.status(400).json({ answer: "Please enter a message" })
         return
     }
-    const response = await query(message, model,chatId)
+    const response = await query(message)
+    console.log("my response ",response)
+    
     const prompt: Message = {
 
-        text: response || "Sorry, I don't know what you mean.",
+        text: response || 'Sorry, I did not understand that.',
         createdAt: admin.firestore.Timestamp.now(),
         user: {
             _id: "Chatgpt",

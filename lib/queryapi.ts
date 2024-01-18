@@ -1,20 +1,17 @@
 
 import openai from "./chatgpt";
 
-const query = async (prompt:string,model:string,chatId:string) =>{
-    const res  = await openai.createCompletion({
-        model,
-        prompt,
-        temperature:0.9,
-        max_tokens:1000,
-        top_p:1,
-        frequency_penalty:0,
-        presence_penalty:0,
+const query = async (prompt:string) =>{
+   const response = await openai.chat.completions.create({
+    messages: [{ role: 'user', content: prompt }],
+    model: 'gpt-3.5-turbo',
+   })
 
-    })
-    .then(res => res.data.choices[0].text)
-    .catch(err => `Chatgpt unable to respond to ${prompt}, ${err}`);
-    return res;
+
+   let res = response.choices[0].message.content;
+   return res;
+
+  
 };
 
 export default query;

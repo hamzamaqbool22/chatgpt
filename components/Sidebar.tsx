@@ -6,7 +6,7 @@ import { useSession,signOut } from "next-auth/react"
 import { db } from "@/firebase"
 import { collection, orderBy, query } from "firebase/firestore"
 import ChatRow from "./ChatRow"
-import ModelSelection from "./ModelSelection"
+// import ModelSelection from "./ModelSelection"
 const Sidebar = () => {
     const {data:session} = useSession()
 
@@ -23,7 +23,7 @@ const Sidebar = () => {
                     <NewChat/>
                 </div>
                 <div className="hidden sm:inline">
-                    <ModelSelection/>
+                    {/* <ModelSelection/> */}
                 </div>
                 <div className="flex flex-col space-y-2 my-2">
                    {loading && (

@@ -4,13 +4,13 @@ type Props = {
 }
 export default function Message({message}:Props){
     const isCHat = message.user.name === 'Bot'
-    const textContent = message.text || "";
+    const textContent = message.text as string;
     return(
         <div className={`py-5 text-white ${isCHat && "bg-[#434654]"}`}>
             
         <div className="flex space-x-5 px-10 max-w-2xl mx-auto">
-            {/* <img src={message.user.avatar} alt="" className="h-8 w-8"/> */}
-            {/* <p className="pt-1 text-sm">{textContent}</p> */}
+            <img src={message.user.avatar} alt="" className="h-8 w-8"/>
+            <p className="pt-1 text-sm">{textContent}</p>
         </div>
         </div>
     )

@@ -17,7 +17,6 @@ export default async function handler(
         return
     }
     const response = await query(message)
-    console.log("my response ",response)
     
     const prompt: Message = {
 

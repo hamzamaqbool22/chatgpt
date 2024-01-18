@@ -6,6 +6,7 @@ import { db } from "../firebase"
 import { orderBy } from "@firebase/firestore"
 import Message from "./Message"
 import { ArrowDownCircleIcon } from "@heroicons/react/24/solid"
+import NewChat from "./NewChat"
 
 type Props = {
     id:string
@@ -20,6 +21,9 @@ export default function ChatBox({id}:Props){
 
     return(
         <div className="flex-1 overflow-y-auto overflow-x-hidden ">
+            <div  className=" md:hidden lg:hidden xl:hidden py-3 w-[200px] h-[100px]">
+                <NewChat/>
+            </div>
             {messages?.empty && (
                 <>
                 <p className="mt-10 text-center text-white">Type a prompt in below to get started!</p>

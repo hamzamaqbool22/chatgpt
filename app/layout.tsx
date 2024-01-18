@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Sidebar from '@/components/Sidebar'
 import { getServerSession } from 'next-auth'
@@ -8,7 +7,7 @@ import Login from '@/components/Login'
 import ClientProvider from '@/components/ClientProvider'
 
 
-const inter = Inter({ subsets: ['latin']})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'My GPT',
@@ -24,28 +23,25 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-      <SessionProvider session={session}>
+
+        <SessionProvider session={session}>
           {!session ? (
             <div>
-             <Login/>
+              <Login />
             </div>
           ) : (
             <div className='flex'>
-              <div className='bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w[20rem] '>
+              <div className=' bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w[20rem] '>
                 <Sidebar />
               </div>
 
-              <ClientProvider/>
+              <ClientProvider />
 
               <div className='bg-[#343541] flex-1'>{children}</div>
-
             </div>
           )}
-
-
-
-        </SessionProvider>        </body>
+        </SessionProvider>
+      </body>
     </html>
   )
 }

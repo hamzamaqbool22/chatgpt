@@ -15,7 +15,8 @@ const Sidebar = () => {
         orderBy('createdAt','asc')
     ))
   return (
-    <div>
+    <>
+    <div className="hidden md:block ">
         <div className="p-2 flex flex-col h-screen">
             <div className="flex-1">
 
@@ -45,9 +46,9 @@ const Sidebar = () => {
                 <ArrowUpOnSquareIcon className="h-6 w-6 text-gray-300 cursor-pointer" />
                </div>
         </div>
-     
-
     </div>
+
+    </>
   )
 }
 
